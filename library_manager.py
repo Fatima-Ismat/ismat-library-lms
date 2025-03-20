@@ -119,10 +119,6 @@ st.markdown("""
 #           st.error(f"Error loading library: {e}")
 #           return False
 
-import streamlit as st
-import json
-import os
-import requests
 
 # Load Lottie Animation from URL
 def load_lottieurl(url):
