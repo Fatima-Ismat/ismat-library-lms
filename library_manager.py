@@ -129,19 +129,6 @@ def save_library():
      except Exception as e:
           st.error(f"Error loading library: {e}")
           return False
-
-        st.write("Saving library:", st.session_state.library)
-
-        with open('library.json', 'w', encoding="utf-8") as file:
-            json.dump(st.session_state.library, file, indent=4)
-        
-        st.success("Library saved successfully!")
-        return True
-
-    except Exception as e:
-        st.error(f"Error saving library: {e}")
-        return False
-
      
 #add a book to library
 def add_book(title, author, publication_year, genre, read_status):
@@ -422,7 +409,6 @@ elif st.session_state.current_view == "stats":
                     st.markdown(f"**{author}**:{count} book{'s' if count > 1 else ''} ")
 st.markdown("---")
 st.markdown("Copyright @ 2025 Ismat Fatima Personal Library Manager", unsafe_allow_html=True)
-
 
 
 
