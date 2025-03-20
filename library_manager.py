@@ -89,91 +89,35 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 
-# def load_lottieurl(url):
-#      try:
-#           r = requests.get(url)
-#           if r.status_code != 200:
-#                return r.json()
-#      except:
-#           return None
-# if 'library' not in st.session_state:
-#      st.session_state.library = []
-# if 'search_results' not in st.session_state:
-#      st.session_state.search_results = []
-# if 'book_added' not in st.session_state:
-#      st.session_state.book_added = False
-# if 'book_removed' not in st.session_state:
-#      st.session_state.book_removed = False
-# if 'current_view' not in st.session_state:
-#      st.session_state.current_view = "library"
-
-# #load library
-# def load_library():
-#      try:
-#           if os.path.exists('library.json'):
-#                with open('library.json', 'r') as file:
-#                     st.session_state.library = json.load(file)
-#                     return True
-               
-#      except Exception as e:
-#           st.error(f"Error loading library: {e}")
-#           return False
-
-
-# Load Lottie Animation from URL
 def load_lottieurl(url):
-    try:
-        r = requests.get(url)
-        if r.status_code != 200:
-            return None
-        return r.json()  # Fixed: Only return JSON if status is 200
-    except Exception as e:
-        st.error(f"Error fetching Lottie animation: {e}")
-        return None
-
-# Initialize Session State
+     try:
+          r = requests.get(url)
+          if r.status_code != 200:
+               return r.json()
+     except:
+          return None
 if 'library' not in st.session_state:
-    st.session_state.library = []
+     st.session_state.library = []
 if 'search_results' not in st.session_state:
-    st.session_state.search_results = []
+     st.session_state.search_results = []
 if 'book_added' not in st.session_state:
-    st.session_state.book_added = False
+     st.session_state.book_added = False
 if 'book_removed' not in st.session_state:
-    st.session_state.book_removed = False
+     st.session_state.book_removed = False
 if 'current_view' not in st.session_state:
-    st.session_state.current_view = "library"
+     st.session_state.current_view = "library"
 
-# Load Library Data
+#load library
 def load_library():
-    file_path = "library.json"
-    
-    try:
-        if os.path.exists(file_path) and os.path.getsize(file_path) > 0:  # Ensure file is not empty
-            with open(file_path, "r", encoding="utf-8") as file:
-                st.session_state.library = json.load(file)
-            return True
-        else:
-            st.warning("📁 Library file is empty or does not exist.")
-            return False
-    except json.JSONDecodeError as e:
-        st.error(f"❌ JSON Error in library file: {e}")
-        return False
-    except Exception as e:
-        st.error(f"❌ Unexpected Error: {e}")
-        return False
-
-# Save Library Data
-def save_library():
-    file_path = "library.json"
-    
-    try:
-        with open(file_path, "w", encoding="utf-8") as file:
-            json.dump(st.session_state.library, file, indent=4)
-        return True
-    except Exception as e:
-        st.error(f"❌ Error saving library: {e}")
-        return False
-
+     try:
+          if os.path.exists('library.json'):
+               with open('library.json', 'r') as file:
+                    st.session_state.library = json.load(file)
+                    return True
+               
+     except Exception as e:
+          st.error(f"Error loading library: {e}")
+          return False
 
 
 #save library
