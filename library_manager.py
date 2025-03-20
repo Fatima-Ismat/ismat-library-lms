@@ -23,12 +23,12 @@ st.set_page_config(
 st.markdown("""
 <style>
      .main-header {
-     font-size: 3rem !important;
-     color: #1E3A8A;
-     font-weight: 700;
-     margin-bottom: 1rem;
-     text-align: center;
-     text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+          font-size: 3rem !important;
+          color: #1E3A8A;
+          font-weight: 700;
+          margin-bottom: 1rem;
+          text-align: center;
+          text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
      }
             
      .sub_header {
@@ -120,30 +120,16 @@ def load_library():
           return False
 
 
-# #save library
-# def save_library():
-#      try:
-#           with open('library.json', 'w') as file:
-#                json.dump(st.session_state.library, file)
-#                return True
-#      except Exception as e:
-#           st.error(f"Error loading library: {e}")
-#           return False
-
-
-# save library function
+#save library
 def save_library():
-    try:
-        
-        if "library" not in st.session_state:
-            st.error("Error: `library` session state does not exist.")
-            return False
+     try:
+          with open('library.json', 'w') as file:
+               json.dump(st.session_state.library, file)
+               return True
+     except Exception as e:
+          st.error(f"Error loading library: {e}")
+          return False
 
-        if not isinstance(st.session_state.library, dict):
-            st.error("Error: `library` is not a valid dictionary.")
-            return False
-        
-        
         st.write("Saving library:", st.session_state.library)
 
         with open('library.json', 'w', encoding="utf-8") as file:
