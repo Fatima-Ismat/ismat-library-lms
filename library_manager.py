@@ -33,7 +33,7 @@ st.markdown("""
             
      .sub_header {
           font-size: 1.8rem !important;
-          color:3B82F6;
+          color: #3B82F6;
           font-weight: 600;
           margin-top: 1rem;
           margin-bottom: 1rem;
